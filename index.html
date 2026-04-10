@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Barber Padu | Singapore Barbershop</title>
+  <meta name="description" content="Barber Padu – quality cuts, beard trims and premium grooming in Singapore. Book online now." />
+  <style>
+    :root {
+      --bg: #0f0e0b;
+      --panel: #181612;
+      --soft: #22201a;
+      --text: #f8f4ea;
+      --muted: #c8c1b2;
+      --gold: #d6a24a;
+      --gold-dark: #b38131;
+      --border: rgba(255,255,255,0.08);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+    }
+    a { color: inherit; text-decoration: none; }
+    .container { width: min(1120px, calc(100% - 32px)); margin: 0 auto; }
+    .hero {
+      background: linear-gradient(180deg, #1a1711 0%, #0f0e0b 100%);
+      border-bottom: 1px solid var(--border);
+      padding: 72px 0 56px;
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 28px;
+      align-items: start;
+    }
+    .eyebrow {
+      display: inline-block;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: rgba(214,162,74,0.12);
+      border: 1px solid rgba(214,162,74,0.35);
+      color: #f6d79d;
+      font-size: 13px;
+      margin-bottom: 16px;
+    }
+    h1 {
+      font-size: clamp(40px, 7vw, 72px);
+      line-height: 0.98;
+      margin: 0;
+      letter-spacing: -1.5px;
+    }
+    .lead {
+      color: var(--muted);
+      font-size: 20px;
+      max-width: 640px;
+      margin-top: 18px;
+    }
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 28px;
+    }
+    .btn {
+      display: inline-block;
+      padding: 15px 22px;
+      border-radius: 16px;
+      font-weight: 700;
+      transition: 0.2s ease;
+    }
+    .btn-primary {
+      background: var(--gold);
+      color: #1b160c;
+    }
+    .btn-primary:hover { background: var(--gold-dark); }
+    .btn-secondary {
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.03);
+    }
+    .btn-secondary:hover { background: rgba(255,255,255,0.06); }
+    .card, .stat, .service, .hours, .cta-box {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+    }
+    .card { padding: 24px; }
+    .card h3, .section h2 { margin-top: 0; }
+    .stat-wrap {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+      margin-top: 26px;
+      max-width: 560px;
+    }
+    .stat { padding: 18px 20px; }
+    .stat strong { display: block; font-size: 28px; margin-bottom: 4px; }
+    .mini-label {
+      color: #f6d79d;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 10px;
+    }
+    .highlights { display: grid; gap: 12px; }
+    .highlight {
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 14px 16px;
+      background: rgba(255,255,255,0.02);
+      color: var(--muted);
+    }
+    .section { padding: 64px 0; }
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 18px;
+      margin-bottom: 22px;
+    }
+    .section h2 { font-size: 38px; margin-bottom: 8px; }
+    .section p.section-copy { color: var(--muted); max-width: 760px; }
+    .services {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+    .service { padding: 22px; }
+    .service-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: start;
+      gap: 16px;
+    }
+    .price {
+      background: rgba(214,162,74,0.12);
+      color: #f6d79d;
+      padding: 8px 12px;
+      border-radius: 999px;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+    .service p, .hours p, .location p, .cta-box p { color: var(--muted); }
+    .split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 22px;
+    }
+    .location, .hours { padding: 24px; }
+    .hours-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 14px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .hours-row:last-child { border-bottom: 0; }
+    .instagram-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-top: 18px;
+    }
+    .instagram-box {
+      min-height: 180px;
+      border-radius: 20px;
+      border: 1px dashed rgba(214,162,74,0.4);
+      background: linear-gradient(135deg, rgba(214,162,74,0.08), rgba(255,255,255,0.03));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 18px;
+      color: var(--muted);
+      font-weight: 600;
+    }
+    .cta-box {
+      padding: 32px;
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 20px;
+      align-items: center;
+      background: linear-gradient(135deg, rgba(214,162,74,0.12), rgba(255,255,255,0.03));
+    }
+    footer {
+      padding: 28px 0 46px;
+      color: #9f9787;
+      font-size: 14px;
+      text-align: center;
+    }
+    @media (max-width: 900px) {
+      .hero-grid, .split, .cta-box, .services, .instagram-grid { grid-template-columns: 1fr; }
+      .section-header { align-items: start; flex-direction: column; }
+    }
+    @media (max-width: 640px) {
+      .hero { padding-top: 52px; }
+      .lead { font-size: 18px; }
+      .stat-wrap { grid-template-columns: 1fr; }
+      .section h2 { font-size: 30px; }
+    }
+  </style>
+</head>
+<body>
+  <section class="hero">
+    <div class="container hero-grid">
+      <div>
+        <div class="eyebrow">Singapore Barbershop · Book online instantly</div>
+        <h1>Barber Padu</h1>
+        <p class="lead">Sharp cuts, strong vibes and experienced barbers who know how to get the look right. From clean fades to beard work and premium grooming, Barber Padu keeps it padu.</p>
+        <div class="actions">
+          <a class="btn btn-primary" href="https://barberpadu.setmore.com/" target="_blank">Book Your Slot</a>
+          <a class="btn btn-secondary" href="https://www.instagram.com/barberpadu/" target="_blank">Follow on Instagram</a>
+          <a class="btn btn-secondary" href="tel:+6569046100">Call +65 6904 6100</a>
+        </div>
+        <div class="stat-wrap">
+          <div class="stat"><strong>4.9★</strong>Trusted by customers across Singapore</div>
+          <div class="stat"><strong>742+</strong>Instagram posts showing cuts, vibes and the shop culture</div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="mini-label">Why clients come back</div>
+        <div class="highlights">
+          <div class="highlight">Near Kembangan with a loyal regular customer base and easy evening access.</div>
+          <div class="highlight">Open daily with strong booking flow and premium service in a neighbourhood setting.</div>
+          <div class="highlight">Cuts, beard trims, premium grooming and a team that knows how to consult properly.</div>
+          <div class="highlight">Real barbershop energy, not just another generic chain experience.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <div>
+          <div class="mini-label">Popular Services</div>
+          <h2>Simple menu. Sharp results.</h2>
+          <p class="section-copy">A focused service menu built around what clients actually want: good cuts, good grooming and consistency.</p>
+        </div>
+        <a class="btn btn-secondary" href="https://barberpadu.setmore.com/" target="_blank">View all services</a>
+      </div>
+      <div class="services">
+        <div class="service">
+          <div class="service-top"><h3>Master Barber Haircut</h3><span class="price">$45</span></div>
+          <p>Expert consultation and signature styling from the shop’s top tier barber.</p>
+        </div>
+        <div class="service">
+          <div class="service-top"><h3>Senior Barber Haircut</h3><span class="price">$40</span></div>
+          <p>A sharp, reliable cut finished with product styling.</p>
+        </div>
+        <div class="service">
+          <div class="service-top"><h3>Haircut & Wash</h3><span class="price">$50</span></div>
+          <p>Clean cut, proper wash and a more complete refresh.</p>
+        </div>
+        <div class="service">
+          <div class="service-top"><h3>Haircut & Beard Trim</h3><span class="price">$60</span></div>
+          <p>For clients who want both the haircut and beard line-up done right.</p>
+        </div>
+        <div class="service">
+          <div class="service-top"><h3>Premium Cut</h3><span class="price">$85</span></div>
+          <p>Facial steaming, deep cleanse, hot towel and styling for a full grooming session.</p>
+        </div>
+        <div class="service">
+          <div class="service-top"><h3>Child Haircut</h3><span class="price">$22</span></div>
+          <p>For kids 12 and below, with the same care and attention to detail.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="background: rgba(255,255,255,0.02); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);">
+    <div class="container split">
+      <div class="location card">
+        <div class="mini-label">Visit Us</div>
+        <h2 style="font-size: 32px; margin-bottom: 12px;">Your neighbourhood barbershop in the East</h2>
+        <p><strong style="color: var(--text);">380 Changi Road #01-04, Singapore 419832</strong></p>
+        <p>Close to Kembangan and easy for East side regulars, condo residents and nearby walk-ins who want quality without going into town.</p>
+        <div class="actions">
+          <a class="btn btn-primary" href="https://maps.google.com/?q=380+Changi+Road+%2301-04+Singapore+419832" target="_blank">Open in Maps</a>
+        </div>
+      </div>
+      <div class="hours">
+        <div class="mini-label">Opening Hours</div>
+        <div class="hours-row"><span>Sunday</span><span>12 PM – 10 PM</span></div>
+        <div class="hours-row"><span>Monday</span><span>12 PM – 10 PM</span></div>
+        <div class="hours-row"><span>Tuesday</span><span>12 PM – 10 PM</span></div>
+        <div class="hours-row"><span>Wednesday</span><span>12 PM – 10 PM</span></div>
+        <div class="hours-row"><span>Thursday</span><span>12 PM – 10 PM</span></div>
+        <div class="hours-row"><span>Friday</span><span>2 PM – 10 PM</span></div>
+        <div class="hours-row"><span>Saturday</span><span>12 PM – 10 PM</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <div>
+          <div class="mini-label">Instagram</div>
+          <h2>See the cuts. Feel the vibe.</h2>
+          <p class="section-copy">Your Instagram already does a lot of the selling. This section pushes visitors straight into your real content and social proof.</p>
+        </div>
+        <a class="btn btn-secondary" href="https://www.instagram.com/barberpadu/" target="_blank">@barberpadu</a>
+      </div>
+      <div class="instagram-grid">
+        <a class="instagram-box" href="https://www.instagram.com/barberpadu/" target="_blank">Latest cuts and transformations</a>
+        <a class="instagram-box" href="https://www.instagram.com/barberpadu/" target="_blank">Shop culture, team and behind-the-scenes</a>
+        <a class="instagram-box" href="https://barberpadu.setmore.com/" target="_blank">Turn visitors into bookings</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="cta-box">
+        <div>
+          <div class="mini-label">Ready for your next cut?</div>
+          <h2 style="margin-bottom: 12px;">Book Barber Padu in under a minute.</h2>
+          <p>Whether you want a clean haircut, beard trim or a full premium grooming session, lock in your slot online and let the team handle the rest.</p>
+        </div>
+        <div class="actions" style="justify-content: flex-start;">
+          <a class="btn btn-primary" href="https://barberpadu.setmore.com/" target="_blank">Book Now</a>
+          <a class="btn btn-secondary" href="mailto:barberpadubarbershop@gmail.com">Email Us</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    Barber Padu · 380 Changi Road #01-04, Singapore 419832 · Follow us on Instagram @barberpadu
+  </footer>
+</body>
+</html>
